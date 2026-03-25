@@ -1,0 +1,39 @@
+{
+  "name": "deploy-bot",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "test": "vitest run --coverage",
+    "type-check": "tsc --noEmit",
+    "check": "ultracite check --type-aware --type-check",
+    "fix": "ultracite fix --type-aware --type-check",
+    "validate": "pnpm check && pnpm type-check && pnpm test"
+  },
+  "dependencies": {
+    "@chat-adapter/github": "4.22.0",
+    "@chat-adapter/linear": "4.22.0",
+    "@chat-adapter/slack": "4.22.0",
+    "@chat-adapter/state-redis": "4.22.0",
+    "@linear/sdk": "76.0.0",
+    "@octokit/rest": "22.0.1",
+    "chat": "4.22.0",
+    "next": "^16.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "workflow": "4.2.0-beta.72"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@vitest/coverage-v8": "^4.1.1",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
+    "oxlint-tsgolint": "^0.17.2",
+    "typescript": "^6.0.2",
+    "ultracite": "7.3.2",
+    "vite": "^8.0.2",
+    "vitest": "^4.1.0"
+  }
+}
