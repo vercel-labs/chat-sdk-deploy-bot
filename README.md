@@ -18,21 +18,26 @@ A deploy orchestrator built with [Chat SDK](https://chat-sdk.dev) and [Vercel Wo
 
 ### Slack
 
+The quickest way to get started is to create your app from the included manifest:
+
+1. Go to [api.slack.com/apps](https://api.slack.com/apps) and click **Create New App** → **From a manifest**
+2. Select your workspace, paste the contents of [`slack-manifest.json`](./slack-manifest.json), and create the app
+3. Replace `https://example.com` in **Interactivity & Shortcuts** with your actual domain (or ngrok URL during development)
+4. Install the app to your workspace
+5. Copy the **Bot User OAuth Token** from **OAuth & Permissions** and the **Signing Secret** from **Basic Information** into your `.env.local`
+
+<details>
+<summary>Manual setup (without manifest)</summary>
+
 1. Create a Slack app at [api.slack.com/apps](https://api.slack.com/apps).
-2. Install the app to your workspace and copy the bot token and signing secret.
+2. Under **OAuth & Permissions**, add the bot token scopes: `chat:write`, `commands`, `im:write`, `channels:history`, `channels:read`, `groups:history`, `groups:read`, `im:history`, `im:read`, `mpim:history`, `mpim:read`, `users:read`
 3. Add a slash command:
    - Command: `/deploy`
    - Request URL: `https://your-domain.vercel.app/api/webhooks/slack`
-4. Enable Interactivity and set the request URL to the same Slack webhook URL.
-5. Reinstall the app after changing scopes.
+4. Enable **Interactivity & Shortcuts** and set the request URL to the same Slack webhook URL.
+5. Install the app to your workspace and copy the bot token and signing secret.
 
-Required bot scopes:
-
-- `chat:write`
-- `commands`
-- `im:write`
-
-These are the only Slack scopes the current bot needs. It does not use Slack Event Subscriptions, reactions, or mention handlers.
+</details>
 
 ### GitHub
 

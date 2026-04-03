@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "extends": ["./node_modules/ultracite/config/oxlint/core/.oxlintrc.json"],
+  "ignorePatterns": [".agents/**", ".claude/**", "*.md", "*.json", "*.jsonc"],
   "overrides": [
     {
       "files": ["**/*.test.ts"],
